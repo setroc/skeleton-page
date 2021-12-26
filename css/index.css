@@ -1,0 +1,147 @@
+:root {
+  --black: #000000; 
+  --grey: #787878; 
+  
+  --white: #ffffff; 
+  --skeleton-gray: #d2d2d2;
+  --background-main: #ecf0f1;
+
+  --color-h1: #21185f;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  color: var(--black);
+  background-color: var(--background-main);
+  font-family: Raleway, sans-serif;
+  width: 100%;
+  height: 100vh;
+  min-width: 425px;
+}
+header {
+  background-color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  height: 150px;
+}
+header h1 {
+  font-size: 1.2rem;
+  color: var(--color-h1);
+}
+header img {
+  width: 64px;
+}
+main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 60px auto;
+  width: 90%;
+  gap: 20px;
+}
+.card {
+  background-color: var(--white);
+  border-radius: 8px;
+  display: flex;
+  padding: 20px;
+  gap: 5px;
+}
+.card .img {
+  width: 30%;
+  height: 125px;
+  border-radius: 8px;
+  background-color: var(--skeleton-gray);
+}
+.card .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.card .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+.card .content .title {
+  width: 100%;
+}
+.card .content .author {
+  display: flex;
+  align-items: center;
+}
+.card .content .author .img {
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.card .content .author .img img {
+  overflow: hidden;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.card .content .author .data {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card .content .author .name {
+  font-weight: 400;
+  font-size: .8rem;
+}
+.card .content .author .dash {
+  font-size: 2rem;
+  color: var(--grey);
+}
+.card .content .author .time {
+  color: var(--grey);
+  font-size: .8rem;
+}
+/* skeleton */
+.card .img.skeleton img {
+  background-color: var(--skeleton-gray);
+  display: none;
+}
+.card .content.skeleton .title {
+  background-color: var(--skeleton-gray);
+  color: transparent;
+  border-radius: 2.5px;
+}
+.card .content.skeleton .author .img img{
+  background-color: var(--skeleton-gray);
+  display: none;
+}
+.card .content.skeleton .author .data p {
+  color: transparent;
+  background-color: var(--skeleton-gray);
+  border-radius: 2.5px;
+}
+.card .content.skeleton .author .data p:nth-child(2) {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  main {
+    /* width: 900px; */
+  }
+  .card .img {
+    width: 40%;
+  }
+}
+@media (max-width: 950px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 650px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
